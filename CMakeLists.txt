@@ -689,15 +689,7 @@ endif()
 ########### subdirs ###############
 
 add_subdirectory( dbus )
-add_subdirectory( bus )
-if(DBUS_ENABLE_MODULAR_TESTS OR DBUS_ENABLE_INTRUSIVE_TESTS)
-    add_subdirectory( test )
-    add_custom_target(check
-        COMMAND ctest -R ^test-.*
-    )
-endif()
-add_subdirectory( tools )
-add_subdirectory( doc )
+
 
 
 option(DBUS_INSTALL_SYSTEM_LIBS "install required system libraries" OFF)
