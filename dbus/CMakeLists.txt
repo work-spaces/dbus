@@ -111,8 +111,8 @@ endif()
 
 
 ### source code that goes in the installed client library
-### AND is generic utility functionality used by the 
-### daemon or test programs (all symbols in here should 
+### AND is generic utility functionality used by the
+### daemon or test programs (all symbols in here should
 ### be underscore-prefixed)
 set(DBUS_SHARED_SOURCES
     dbus-dataslot.c
@@ -151,8 +151,8 @@ endif()
 
 ### source code that is generic utility functionality used
 ### by the bus daemon or test apps, but is NOT included
-### in the D-BUS client library (all symbols in here 
-### should be underscore-prefixed but don't really need 
+### in the D-BUS client library (all symbols in here
+### should be underscore-prefixed but don't really need
 ### to be unless they move to DBUS_SHARED_SOURCES later)
 set(DBUS_UTIL_SOURCES
     dbus-asv-util.c
@@ -263,7 +263,7 @@ find_library(LIBRT rt)
 find_library(LIBSOCKET socket)
 
 ### Client library
-add_library(dbus-1 SHARED
+add_library(dbus-1 STATIC
     ${libdbus_SOURCES}
     ${libdbus_HEADERS}
 )
