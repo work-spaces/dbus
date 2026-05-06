@@ -2396,7 +2396,11 @@ _dbus_read_credentials_socket  (DBusSocket       client_fd,
       }
     else
       {
+#if !defined(__APPLE__)
+        /* cr_pid was added to struct xucred in FreeBSD 13.0.
+         * macOS struct xucred does not have a cr_pid field. */
         pid_read = cr.cr_pid;
+#endif
         uid_read = cr.cr_uid;
       }
 #elif defined(HAVE_CMSGCRED)
